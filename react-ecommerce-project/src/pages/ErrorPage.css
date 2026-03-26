@@ -1,0 +1,19 @@
+body{
+  margin-top: 62px;
+}
+
+.container-error{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: calc(100vh - 62px);
+  flex-direction: column;
+}
+
+.txt-title{
+  font-size: 150px;
+}
+
+.txt-content{
+  font-size: 50px;
+}
