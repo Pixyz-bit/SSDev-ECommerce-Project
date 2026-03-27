@@ -10,7 +10,7 @@ export function HomePage() {
     axios.get("http://localhost:3000/api/products").then((response) => {
       setProducts(response.data);
     });
-  },[]);
+  }, []);
 
   // fetch('http://localhost:3000/api/products')
   // .then((response)=>{
