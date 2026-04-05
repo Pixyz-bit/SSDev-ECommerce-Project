@@ -1,6 +1,6 @@
-import dayjs from "dayjs";
 import { DeliveryOptions } from "./DeliveryOptions";
 import { CartItemDetails } from "./CartItemDetails";
+import { DeliveryDate } from "./DeliveryDate";
 export function OrderSummary({ cart, deliveryOptions }) {
   return (
     <div className="order-summary">

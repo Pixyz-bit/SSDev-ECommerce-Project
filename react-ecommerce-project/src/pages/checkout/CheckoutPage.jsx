@@ -4,6 +4,7 @@ import { PaymentSummary } from "./PaymentSummary";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { OrderSummary } from "./OrderSummary";
+
 export function CheckoutPage({ cart }) {
   const [deliveryOptions, setDeliveryOptions] = useState([]);
   const [paymentSummary, setPaymentSummary] = useState(null);
@@ -26,7 +27,7 @@ export function CheckoutPage({ cart }) {
       <title>Checkout</title>
       <link rel="icon" type="image/svg+xml" href="cart-favicon.png" />
 
-      <CheckoutHeader />
+      <CheckoutHeader cart={cart} />
       <div className="checkout-page">
         <div className="page-title">Review your order</div>
 
