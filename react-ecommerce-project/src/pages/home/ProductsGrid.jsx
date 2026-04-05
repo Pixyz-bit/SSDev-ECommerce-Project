@@ -1,33 +1,8 @@
-import "./HomePage.css";
-import axios from "axios";
-import { useEffect, useState } from "react";
-import { Header } from "../components/Header";
-import { formatMoney } from "../utils/money";
-//import CheckmarkIcon from "../assets/images/icons/checkmark.png";
-//import { products } from "../../starting-code/data/products";
-export function HomePage({cart}) {
-  const [products, setProducts] = useState([]);
+import { formatMoney } from "../../utils/money";
 
-  useEffect(() => {
-    axios.get("/api/products").then((response) => {
-      //axios.get("http://localhost:3000/api/products") //check vite.config.js for server: proxy
-      setProducts(response.data);
-    });
-  }, []);
-  // fetch('http://localhost:3000/api/products')
-  // .then((response)=>{
-  //     response.json().then((data)=>{
-  //     console.log(data);
-  //   })
-  // });
-  return (
-    <>
-      <title>Ecommerce Project</title>
-      <link rel="icon" type="image/svg+xml" href="home-favicon.png" />
-
-      <Header cart={cart} />
-      <div className="home-page">
-        <div className="products-grid">
+export function ProductsGrid({products}){
+  return(
+     <div className="products-grid">
           {products.map((product) => {
             return (
               <div key={product.id} className="product-container">
@@ -82,7 +57,5 @@ export function HomePage({cart}) {
             );
           })}
         </div>
-      </div>
-    </>
-  );
+  )
 }
