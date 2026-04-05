@@ -5,21 +5,36 @@ import { Header } from "../../components/Header";
 import { ProductsGrid } from "./ProductsGrid";
 //import CheckmarkIcon from "../assets/images/icons/checkmark.png";
 //import { products } from "../../starting-code/data/products";
-export function HomePage({cart}) {
+export function HomePage({ cart }) {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    axios.get("/api/products").then((response) => {
+    // --Final Version
+    const getHomeData = async () => {
+      const response = await axios.get("/api/products");
+      //axios.get("http://localhost:3000/api/products") //check vite.config.js for server: proxy
+      setProducts(response.data);
+    };
+
+    getHomeData();
+  }, []);
+
+  /* --Version 2--
+  useEffect(()=>{
+  axios.get("/api/products").then((response) => {
       //axios.get("http://localhost:3000/api/products") //check vite.config.js for server: proxy
       setProducts(response.data);
     });
-  }, []);
-  // fetch('http://localhost:3000/api/products')
-  // .then((response)=>{
-  //     response.json().then((data)=>{
-  //     console.log(data);
-  //   })
-  // });
+  }, []);*/
+
+  /* --Version 1--
+  useEffect(()=>{
+  fetch('http://localhost:3000/api/products')
+  .then((response)=>{
+      response.json().then((data)=>{
+      console.log(data);
+    })
+  },[]);*/
   return (
     <>
       <title>Ecommerce Project</title>
@@ -27,7 +42,7 @@ export function HomePage({cart}) {
 
       <Header cart={cart} />
       <div className="home-page">
-       <ProductsGrid products={products}/>
+        <ProductsGrid products={products} />
       </div>
     </>
   );
