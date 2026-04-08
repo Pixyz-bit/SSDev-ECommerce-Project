@@ -3,6 +3,8 @@ import BuyAgainIcon from "../../assets/images/icons/buy-again.png";
 import { Fragment } from "react";
 
 export function OrderDetailsGrid({order}){
+    //const { orderId, productId } = useParams();
+
   return(
                 <div className="order-details-grid">
               {order.products.map((orderProduct) => {
@@ -32,7 +34,7 @@ export function OrderDetailsGrid({order}){
                     </div>
 
                     <div className="product-actions">
-                      <a href="/tracking">
+                      <a href={`/tracking/${order.id}/${orderProduct.product.id}`}>
                         <button className="track-package-button button-secondary">
                           Track package
                         </button>

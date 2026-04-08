@@ -5,6 +5,8 @@ import SearchIcon from '../assets/images/icons/search-icon.png';
 import LogoWhite from '../assets/images/logo-white.png';
 import MobileLogoWhite from '../assets/images/mobile-logo-white.png';
 export function Header({cart}) {
+    //const totalQuantity = cart.reduce((total, item) => total + item.quantity, 0);
+
   let totalQuantity = 0;
 
   cart.forEach((cartItem)=>{
